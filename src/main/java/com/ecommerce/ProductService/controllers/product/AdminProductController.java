@@ -1,8 +1,9 @@
-package com.ecommerce.ProductService.controllers;
+package com.ecommerce.ProductService.controllers.product;
 
 import com.ecommerce.ProductService.dto.request.ProductRequestDTO;
+import com.ecommerce.ProductService.dto.response.MessageResponseDTO;
 import com.ecommerce.ProductService.dto.response.ProductResponseDTO;
-import com.ecommerce.ProductService.services.ProductService;
+import com.ecommerce.ProductService.services.product.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,9 +32,9 @@ public class AdminProductController {
     }
 
     @DeleteMapping("/deleteproduct/{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id) {
+    public ResponseEntity<MessageResponseDTO> delete(@PathVariable Long id) {
         productService.deleteProduct(id);
-        return ResponseEntity.ok("Product Deleted successfully");
+        return ResponseEntity.ok(new MessageResponseDTO("Product Deleted successfully",true));
     }
 
     @PatchMapping("/updatestock/{id}")

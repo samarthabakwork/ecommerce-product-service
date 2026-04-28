@@ -2,6 +2,7 @@ package com.ecommerce.ProductService.controllers.category;
 
 import com.ecommerce.ProductService.dto.request.CategoryRequestDTO;
 import com.ecommerce.ProductService.dto.response.CategoryResponseDTO;
+import com.ecommerce.ProductService.dto.response.MessageResponseDTO;
 import com.ecommerce.ProductService.services.category.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -31,8 +32,8 @@ public class AdminCategoryController {
     }
 
     @DeleteMapping("/deletecategory/{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id) {
+    public ResponseEntity<MessageResponseDTO> delete(@PathVariable Long id) {
         categoryService.deleteCategory(id);
-        return ResponseEntity.ok("Category Deleted successfully");
+        return ResponseEntity.ok(new MessageResponseDTO("Category Deleted successfully",true));
     }
 }

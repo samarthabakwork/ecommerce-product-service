@@ -18,6 +18,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
+
     public ResponseEntity<ErrorResponseDTO> handleValidation(MethodArgumentNotValidException ex){
         String message = ex.getBindingResult().getFieldErrors()
                 .stream()
