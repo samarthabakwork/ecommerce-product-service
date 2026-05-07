@@ -17,22 +17,22 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/viewallproducts")
+    @GetMapping("/viewAllProducts")
     public ResponseEntity<List<ProductResponseDTO>> getAll() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    @GetMapping("/viewproduct/{id}")
+    @GetMapping("/viewProduct/{id}")
     public ResponseEntity<ProductResponseDTO> getById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
-    @GetMapping("/searchproduct")
+    @GetMapping("/searchProduct")
     public ResponseEntity<List<ProductResponseDTO>> search(@RequestParam String q) {
         return ResponseEntity.ok(productService.searchProducts(q));
     }
 
-    @GetMapping("/viewproductsbycategory/{id}")
+    @GetMapping("/viewProductsByCategory/{id}")
     public ResponseEntity<List<ProductResponseDTO>> byCategory(@PathVariable Long id) {
         return ResponseEntity.ok(productService.getProductsByCategory(id));
     }

@@ -16,14 +16,14 @@ public class AdminProductController {
 
     private final ProductService productService;
 
-    @PostMapping("/createproduct")
+    @PostMapping("/createProduct")
     public ResponseEntity<ProductResponseDTO> create(
             @Valid @RequestBody ProductRequestDTO request) {
 
         return ResponseEntity.ok(productService.createProduct(request));
     }
 
-    @PutMapping("/updateproduct/{id}")
+    @PutMapping("/updateProduct/{id}")
     public ResponseEntity<ProductResponseDTO> update(
             @PathVariable Long id,
             @Valid @RequestBody ProductRequestDTO request) {
@@ -31,13 +31,13 @@ public class AdminProductController {
         return ResponseEntity.ok(productService.updateProduct(id, request));
     }
 
-    @DeleteMapping("/deleteproduct/{id}")
+    @DeleteMapping("/deleteProduct/{id}")
     public ResponseEntity<MessageResponseDTO> delete(@PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.ok(new MessageResponseDTO("Product Deleted successfully",true));
     }
 
-    @PatchMapping("/updatestock/{id}")
+    @PatchMapping("/updateStock/{id}")
     public ResponseEntity<ProductResponseDTO> updateStock(
             @PathVariable Long id,
             @RequestBody Integer stock) {

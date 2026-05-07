@@ -16,14 +16,14 @@ public class AdminCategoryController {
 
     private final CategoryService categoryService;
 
-    @PostMapping("/createcategory")
+    @PostMapping("/createCategory")
     public ResponseEntity<CategoryResponseDTO> create(
             @Valid @RequestBody CategoryRequestDTO request) {
 
         return ResponseEntity.ok(categoryService.createCategory(request));
     }
 
-    @PutMapping("/updatecategory/{id}")
+    @PutMapping("/updateCategory/{id}")
     public ResponseEntity<CategoryResponseDTO> update(
             @PathVariable Long id,
             @Valid @RequestBody CategoryRequestDTO request) {
@@ -31,7 +31,7 @@ public class AdminCategoryController {
         return ResponseEntity.ok(categoryService.updateCategory(id, request));
     }
 
-    @DeleteMapping("/deletecategory/{id}")
+    @DeleteMapping("/deleteCategory/{id}")
     public ResponseEntity<MessageResponseDTO> delete(@PathVariable Long id) {
         categoryService.deleteCategory(id);
         return ResponseEntity.ok(new MessageResponseDTO("Category Deleted successfully",true));
