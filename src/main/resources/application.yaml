@@ -1,3 +1,24 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: ProductService
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce_productservicedb
+    username: root
+    password: root
+
+
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+jwt:
+  secret: sgRZt0pZT3qmuzqC5EQcFLVrxyoWSoZKmvRR8vmQ8Ps=
+  expiration: 600000
